@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b683178-afdc-4cdf-ad0f-7f7cef8823c0" name="Changes" comment="sample  comment" />
+    <list default="true" id="3b683178-afdc-4cdf-ad0f-7f7cef8823c0" name="Changes" comment="sample  comment">
+      <change beforePath="$PROJECT_DIR$/adamarrington_coingame.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/readME.txt" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +76,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718043793009</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="sample  comment">
+      <option name="closed" value="true" />
+      <created>1718044000061</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1718044000061</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
