@@ -1,0 +1,10 @@
+Some goals we can start on:
+    *Create a working game instance
+    *Creating a sprite and player class. (working on currently
+
+
+
+
+So a couple end goals we need to reach towards:
+    *figuring out how transition between waves.
+    *fig
