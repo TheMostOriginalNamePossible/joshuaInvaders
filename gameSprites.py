@@ -20,7 +20,7 @@ class Sprite(simpleGE.Sprite):
 
         # hitbox coefficient properties
 
-        self.tophitboxC = 1
+        self.topHitboxC = 1
         self.bottomHitboxC = 1
         self.leftHitboxC = 1
         self.rightHitboxC = 1
@@ -76,14 +76,6 @@ class Sprite(simpleGE.Sprite):
         else:
             self.__rightHitboxC = 1
 
-    def getMousePos(self):
-        return pygame.mouse.get_pos()
-
-    def moveSprite(self):
-        pos = self.getMousePos()
-        self.x = pos[0]
-        self.y = pos[1]
-
     def setHitbox(self):
         self.top = self.top*self.topHitboxC
         self.bottom = self.bottom*self.bottomHitboxC
@@ -94,19 +86,21 @@ class Sprite(simpleGE.Sprite):
 
 
 
-class Player(Sprite)
+class Player(Sprite):
     def __init__(self, scene):
         super().__init__(scene)
+        self.setHitbox()
 
-
+    def moveSprite(self):
+        pos = pygame.mouse.get_pos()
+        self.x = pos[0]
+        self.y = pos[1]
 
 
 
 class FallingObject(Sprite):
     def __init__(self, scene):
         super().__init__(scene)
-        self.minSpeed = 3
-        self.maxSpeed = 8
         self.value = 1
         self.speed = 3
 
@@ -137,7 +131,4 @@ class PowerUp(FallingObject):
 
         # tells the speed at which it falls
         self.dy = self.speed
-
-
-
 
