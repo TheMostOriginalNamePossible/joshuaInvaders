@@ -116,7 +116,6 @@ class FallingObject(Sprite):
 
     def reset(self, scene, placeholder1, placeholder2):
         # move to where drop comes f
-        self.__init__(scene)
         self.y = 10
 
         # y is random number between min and max speed
@@ -137,7 +136,6 @@ class PowerUp(FallingObject):
 
     def reset(self, scene, xDrop, yDrop):
         # tells where it drops from
-        self.__init__(scene)
         self.x = xDrop
         self.y = yDrop
 
@@ -153,7 +151,6 @@ class Bullet(FallingObject):
 
     def reset(self, scene, xShot, yShot):
         # tells where to shoot from
-        super().__init__(scene)
         self.x = xShot
         self.y = yShot
 
