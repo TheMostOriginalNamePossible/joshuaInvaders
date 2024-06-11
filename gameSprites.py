@@ -86,6 +86,7 @@ class Sprite(simpleGE.Sprite):
 class Player(Sprite):
     def __init__(self, scene):
         super().__init__(scene)
+
         self.setImage("INLYSSunny.png")
         self.setSize(60, 60)
         self.setHitbox()
@@ -106,57 +107,73 @@ class Player(Sprite):
 
 
 
-class FallingObject(Sprite):
+class MovingObject(Sprite):
     def __init__(self, scene):
         super().__init__(scene)
         self.setImage("INLYSSunny.png")
         self.setSize(4, 4)
         self.value = 1
-        self.speed = 3
+        self.ySpeed = 3
 
-    def reset(self, scene, placeholder1, placeholder2):
+    def reset(self):
         # move to where drop comes f
         self.y = 10
 
         # y is random number between min and max speed
-        self.dy = self.speed
+        self.dy = self.ySpeed
 
     def checkBounds(self):
-        if self.top > self.screenHeight:
+        if self.bottom > self.screenHeight:
+            return True
+        elif self.top < 0:
+            return True
+        elif self.right < 0:
+            return True
+        elif self.left > self.screenWidth:
             return True
         else:
             return False
 
 
-class PowerUp(FallingObject):
+class PowerUp(MovingObject):
     def __init__(self, scene):
         super().__init__(scene)
         self.setImage("INLYSSunny.png")
         self.setSize(25, 25)
 
-    def reset(self, scene, xDrop, yDrop):
+    def reset(self):
         # tells where it drops from
-        self.x = xDrop
-        self.y = yDrop
+        self.x = 0
+        self.y = 0
 
         # tells the speed at which it falls
-        self.dy = self.speed
+        self.dy = self.ySpeed
 
 
-class Bullet(FallingObject):
+class Bullet(MovingObject):
     def __init__(self, scene):
         super().__init__(scene)
         self.setImage("INLYSSunny.png")
         self.setSize(25, 25)
 
-    def reset(self, scene, xShot, yShot):
+    def reset(self):
         # tells where to shoot from
-        self.x = xShot
-        self.y = yShot
+        self.x = 0
+        self.y = 0
 
         # moves the laser
-        self.dy = -self.speed
+        self.dy = -self.ySpeed
 
-    def process(self):
-        if self.checkBounds():
-            del self
+    def checkBounds(self):
+        if self.bottom > self.screenHeight:
+            return True
+        elif self.top < 0:
+            return True
+        elif self.right < 0:
+            return True
+        elif self.left > self.screenWidth:
+            return True
+        else:
+            return False
+
+

@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b683178-afdc-4cdf-ad0f-7f7cef8823c0" name="Changes" comment="sample  comment">
-      <change beforePath="$PROJECT_DIR$/adamarrington_coingame.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/readME.txt" beforeDir="false" />
+    <list default="true" id="3b683178-afdc-4cdf-ad0f-7f7cef8823c0" name="Changes" comment="just added some stuff">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameSprites.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameSprites.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/joshuaInvadersMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/joshuaInvadersMain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plans.txt" beforeDir="false" afterPath="$PROJECT_DIR$/plans.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readME.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readME.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,26 +27,56 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2hhO3bJwcRdFurP1p7SNEQ1ugoj" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/zelda/PycharmProjects/Slide and Catch Game but mine"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.joshuaInvadersMain.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/zelda/PycharmProjects/Joshua Invaders&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\zelda\PycharmProjects\Joshua Invaders" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="joshuaInvadersMain" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Joshua Invaders" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/joshuaInvadersMain.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.joshuaInvadersMain" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -84,11 +118,79 @@
       <option name="project" value="LOCAL" />
       <updated>1718044000061</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="sample  comment">
+      <option name="closed" value="true" />
+      <created>1718045096436</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1718045096436</updated>
+    </task>
+    <task id="LOCAL-00005" summary="just added some stuff">
+      <option name="closed" value="true" />
+      <created>1718053990063</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1718053990063</updated>
+    </task>
+    <task id="LOCAL-00006" summary="just added some stuff">
+      <option name="closed" value="true" />
+      <created>1718061640362</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1718061640362</updated>
+    </task>
+    <task id="LOCAL-00007" summary="just added some stuff">
+      <option name="closed" value="true" />
+      <created>1718062118673</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1718062118673</updated>
+    </task>
+    <task id="LOCAL-00008" summary="just added some stuff">
+      <option name="closed" value="true" />
+      <created>1718066616054</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1718066616054</updated>
+    </task>
+    <task id="LOCAL-00009" summary="just added some stuff">
+      <option name="closed" value="true" />
+      <created>1718066625553</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1718066625553</updated>
+    </task>
+    <task id="LOCAL-00010" summary="just added some stuff">
+      <option name="closed" value="true" />
+      <created>1718066740219</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1718066740219</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="sample  comment" />
-    <option name="LAST_COMMIT_MESSAGE" value="sample  comment" />
+    <MESSAGE value="just added some stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="just added some stuff" />
   </component>
 </project>

@@ -19,19 +19,20 @@ class Game(simpleGE.Scene):
         self.player = gameSprites.Player(self)
         self.laser = gameSprites.Bullet(self)
 
-        self.tempInstances = []
+        self.lasers = []
         self.sprites = [self.player]
         # make sounds here
 
     def removeInstance(self, instance):
-        for sprite in self.sprites:
-            if sprite == instance:
-                self.sprites.remove(instance)
-        pass
+        pygame.sprite.Sprite.kill(instance)
 
     def createInstance(self, instance):
         self.sprites.append(instance)
-        pass
+        self.mainSprites = pygame.sprite.OrderedUpdates(instance)
+        self.groups.append(self.mainSprites)
+
+
+
 
     def pauseGame(self):
         # temporary just so I remember
@@ -59,13 +60,21 @@ class Game(simpleGE.Scene):
         for event in pygame.event.get():
             self.doEvents(event)
         if self.player.mouseDown:
-            self.sprites.append(self.laser)
+            self.createInstance(self.laser)
+        if self.laser.checkBounds():
+            self.removeInstance(self.laser)
+
+
+
+
+
+
+
 
     def update(self):
         isPlaying = pygame.mixer.music.get_busy()
         if not isPlaying:
             pygame.mixer.music.play()
-
 
 
 def main():

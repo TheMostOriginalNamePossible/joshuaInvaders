@@ -3,9 +3,9 @@ Things done:
     * Insert a player character inside game instance that can be controlled with mouse
 
 Current Goals:
-    * get a working laser
-    * figure out how to create delete instances from the game
-    *
+    * (SCRAPPED) get a working laser (kinda got something going????)
+    * figure out how to create/delete instances from the game
+    * GET THE LASER TO STOP FOLLOWING CHARACTER AFTER SHOT
 
 So a couple end goals we need to reach towards:
     *making save data and formatting it
