@@ -1,10 +1,13 @@
-Some goals we can start on:
-    *Create a working game instance
-    *Creating a sprite and player class. (working on currently)
+Things done:
+    * Create a working game instance
+    * Insert a player character inside game instance that can be controlled with mouse
 
-
-
+Current Goals:
+    * get a working laser
+    * figure out how to create delete instances from the game
+    *
 
 So a couple end goals we need to reach towards:
+    *making save data and formatting it
     *figuring out how transition between waves.
     *figuring out how to do menus
