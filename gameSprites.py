@@ -9,7 +9,6 @@ import pygame, simpleGE
 class Sprite(simpleGE.Sprite):
     def __init__(self, scene):
         super().__init__(scene)
-        self.setImage("INLYSSunny.png")
 
         # hitbox coefficient private attributes
 
@@ -24,8 +23,6 @@ class Sprite(simpleGE.Sprite):
         self.bottomHitboxC = 1
         self.leftHitboxC = 1
         self.rightHitboxC = 1
-
-        self.setSize(100, 100)
 
         # sets hitbox
 
@@ -89,6 +86,8 @@ class Sprite(simpleGE.Sprite):
 class Player(Sprite):
     def __init__(self, scene):
         super().__init__(scene)
+        self.setImage("INLYSSunny.png")
+        self.setSize(60, 60)
         self.setHitbox()
 
     def moveSprite(self):
@@ -96,16 +95,28 @@ class Player(Sprite):
         self.x = pos[0]
         self.y = pos[1]
 
+    def xGetPos(self):
+        return self.x
+
+    def yGetPos(self):
+        return self.y
+
+    def process(self):
+        self.moveSprite()
+
 
 
 class FallingObject(Sprite):
     def __init__(self, scene):
         super().__init__(scene)
+        self.setImage("INLYSSunny.png")
+        self.setSize(4, 4)
         self.value = 1
         self.speed = 3
 
-    def reset(self):
+    def reset(self, scene, placeholder1, placeholder2):
         # move to where drop comes f
+        self.__init__(scene)
         self.y = 10
 
         # y is random number between min and max speed
@@ -117,18 +128,38 @@ class FallingObject(Sprite):
         else:
             return False
 
+
 class PowerUp(FallingObject):
     def __init__(self, scene):
         super().__init__(scene)
-        self.yDropLocation = 10
-        self.xDropLocation = 10
+        self.setImage("INLYSSunny.png")
+        self.setSize(25, 25)
 
-    def reset(self):
+    def reset(self, scene, xDrop, yDrop):
         # tells where it drops from
-
-        self.x = self.xDropLocation
-        self.y = self.yDropLocation
+        self.__init__(scene)
+        self.x = xDrop
+        self.y = yDrop
 
         # tells the speed at which it falls
         self.dy = self.speed
 
+
+class Bullet(FallingObject):
+    def __init__(self, scene):
+        super().__init__(scene)
+        self.setImage("INLYSSunny.png")
+        self.setSize(25, 25)
+
+    def reset(self, scene, xShot, yShot):
+        # tells where to shoot from
+        super().__init__(scene)
+        self.x = xShot
+        self.y = yShot
+
+        # moves the laser
+        self.dy = -self.speed
+
+    def process(self):
+        if self.checkBounds():
+            del self
