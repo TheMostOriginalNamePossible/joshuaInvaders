@@ -18,20 +18,51 @@ class Game(simpleGE.Scene):
         # put sprites here
         self.player = gameSprites.Player(self)
         self.laser = gameSprites.Bullet(self)
-
-        self.lasers = []
-        self.sprites = [self.player]
+        self.joshua = gameSprites.Joshua(self)
+        self.laserGroup = pygame.sprite.Group()
+        self.playerGroup = pygame.sprite.GroupSingle()
+        self.enemyGroup = pygame.sprite.Group()
         # make sounds here
 
-    def removeInstance(self, instance):
-        pygame.sprite.Sprite.kill(instance)
+    def __mainLoop(self):
+        """ manage all the main events
+            automatically called by start
+        """
+        self.clock.tick(30)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.keepGoing = False
+            self.doEvents(event)
+            self.processEvent(event)
 
-    def createInstance(self, instance):
-        self.sprites.append(instance)
-        self.mainSprites = pygame.sprite.OrderedUpdates(instance)
-        self.groups.append(self.mainSprites)
+        self.update()
+        self.process()
+        for group in self.groups:
+            group.clear(self.screen, self.background)
+            group.update()
+            group.draw(self.screen)
 
+        pygame.display.flip()
+    def start(self):
+        """ sets up the sprite groups
+            begins the main loop
+        """
+        self.playerSpriteUp = pygame.sprite.OrderedUpdates(self.player)
+        self.playerGroup.add(self.playerSpriteUp)
+        self.groups = [self.laserGroup, self.enemyGroup, self.playerGroup]
 
+        self.screen.blit(self.background, (0, 0))
+        self.clock = pygame.time.Clock()
+        self.keepGoing = True
+        while self.keepGoing:
+            self.__mainLoop()
+        pygame.quit()
+
+    def removeLaser(self, laser):
+        laser.remove(self.laserGroup)
+
+    def createLaser(self, laser):
+        laser.add(self.laserGroup)
 
 
     def pauseGame(self):
@@ -57,16 +88,22 @@ class Game(simpleGE.Scene):
             self.stop()
 
     def process(self):
+
         for event in pygame.event.get():
             self.doEvents(event)
         if self.player.mouseDown:
-            self.createInstance(self.laser)
-        if self.laser.checkBounds():
-            self.removeInstance(self.laser)
-
-
-
-
+            self.laser = gameSprites.Bullet(self)
+            self.laser.x = self.player.xGetPos()
+            self.laser.y = self.player.yGetPos()
+            self.laser.move()
+            self.createLaser(self.laser)
+        for laser in self.laserGroup:
+            if laser.checkBounds():
+                self.removeLaser(laser)
+            else:
+                for enemy in self.enemyGroup:
+                    if laser.collidesWith(enemy):
+                        enemy.damage(laser.damage)
 
 
 

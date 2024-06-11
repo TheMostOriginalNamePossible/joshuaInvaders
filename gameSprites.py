@@ -79,14 +79,34 @@ class Sprite(simpleGE.Sprite):
         self.left = self.left*self.leftHitboxC
         self.right = self.right*self.rightHitboxC
 
+    def checkBounds(self):
+        if self.bottom > self.screenHeight:
+            return True
+        elif self.top < 0:
+            return True
+        elif self.right < 0:
+            return True
+        elif self.left > self.screenWidth:
+            return True
+        else:
+            return False
 
 
+class Joshua(Sprite):
+    def __init__(self, scene):
+        super().__init__(scene)
+        self.setImage("Joshua.png")
+        self.setSize(80, 80)
 
+        self.setHitbox()
 
 class Player(Sprite):
     def __init__(self, scene):
         super().__init__(scene)
-
+        self.bottomHitboxC = 0.5
+        self.topHitboxC = 0.5
+        self.leftHitboxC = 0.5
+        self.rightHitboxC = 0.5
         self.setImage("INLYSSunny.png")
         self.setSize(60, 60)
         self.setHitbox()
@@ -117,10 +137,9 @@ class MovingObject(Sprite):
 
     def reset(self):
         # move to where drop comes f
-        self.y = 10
+        self.x = 50
+        self.y = 50
 
-        # y is random number between min and max speed
-        self.dy = self.ySpeed
 
     def checkBounds(self):
         if self.bottom > self.screenHeight:
@@ -141,39 +160,24 @@ class PowerUp(MovingObject):
         self.setImage("INLYSSunny.png")
         self.setSize(25, 25)
 
-    def reset(self):
-        # tells where it drops from
-        self.x = 0
-        self.y = 0
+    def drop(self):
+        pass
 
-        # tells the speed at which it falls
-        self.dy = self.ySpeed
 
 
 class Bullet(MovingObject):
     def __init__(self, scene):
         super().__init__(scene)
+        self.damage = 1
         self.setImage("INLYSSunny.png")
         self.setSize(25, 25)
 
-    def reset(self):
-        # tells where to shoot from
-        self.x = 0
-        self.y = 0
 
-        # moves the laser
+    def move(self):
         self.dy = -self.ySpeed
 
-    def checkBounds(self):
-        if self.bottom > self.screenHeight:
-            return True
-        elif self.top < 0:
-            return True
-        elif self.right < 0:
-            return True
-        elif self.left > self.screenWidth:
-            return True
-        else:
-            return False
+    def stop(self):
+        pass
+
 
 
