@@ -13,8 +13,8 @@ Current Goals:
     * Implement an enemy with player bullet collision detection
     * Create enemy bullet object with collision detection with player
     * make functional power ups (This may be dropped if it's too much of a pain)
-    * Create new hitboxes
-    * Create a wave.
+    * Create new hitbox types
+    * Create an enemy wave.
 
 
 So a couple end goals we need to reach towards:

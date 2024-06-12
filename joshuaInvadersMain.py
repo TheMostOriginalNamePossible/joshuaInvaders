@@ -22,6 +22,7 @@ class Game(simpleGE.Scene):
         self.laserGroup = pygame.sprite.Group()
         self.playerGroup = pygame.sprite.GroupSingle()
         self.enemyGroup = pygame.sprite.Group()
+        self.gameGroup = pygame.sprite.Group()
         # make sounds here
 
     def __mainLoop(self):
@@ -41,6 +42,7 @@ class Game(simpleGE.Scene):
             group.clear(self.screen, self.background)
             group.update()
             group.draw(self.screen)
+
 
         pygame.display.flip()
     def start(self):
@@ -93,6 +95,8 @@ class Game(simpleGE.Scene):
             self.doEvents(event)
         if self.player.mouseDown:
             self.laser = gameSprites.Bullet(self)
+            self.laser.setImage("sepsisLaser.png")
+            self.laser.setSize(25, 25)
             self.laser.x = self.player.xGetPos()
             self.laser.y = self.player.yGetPos()
             self.laser.move()

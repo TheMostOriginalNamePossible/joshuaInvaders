@@ -3,8 +3,42 @@ Holds sprite classes. Put sprite classes in here.
 (For szhoe) Make sure you put a little comment on stuff you change or add
 """
 
-import pygame, simpleGE
+import pygame, simpleGE, math
 
+class Path(object):
+    def __init__(self, scene):
+        super().__init__(scene)
+        self.points = ((0.0, 0.0), (1.0, 1.0))
+        #path parameter
+        self.__parameter = 0.0
+
+        self.parameter = 0.0
+
+    @property
+    def parameter(self):
+        return self.__parameter
+
+    @parameter.setter
+    def parameter(self, parameter):
+        if type(parameter) == float and 0.0 <= parameter <= 1.0:
+            self.parameter = parameter
+        else:
+            self.parameter = 0.0
+
+    def bezier(self, t, points) -> float:
+        """De Casteljau's algorithm."""
+        n = len(points)
+        Px = []
+        Py = []
+
+        for i in range(1, n):
+            xSum = points[i][0]*math.pow()
+            ySum = points[i][0]*(1-t)**(n-i)
+
+        for j in range(1, n):
+            for k in range(n - j):
+                beta[k] = beta[k] * (1 - t) + beta[k + 1] * t
+        return beta[0]
 
 class Sprite(simpleGE.Sprite):
     def __init__(self, scene):
@@ -171,6 +205,7 @@ class Bullet(MovingObject):
         self.damage = 1
         self.setImage("INLYSSunny.png")
         self.setSize(25, 25)
+        self.ySpeed = 10
 
 
     def move(self):
