@@ -4,17 +4,17 @@ Things done:
     * GET THE LASER TO STOP FOLLOWING CHARACTER AFTER SHOT
     * get a working laser
     * figure out how to create/delete instances from the game (properly)
+    * enemies can be damaged and "killed"
+    * I FIXED THE VISUAL BUG LETS GO!!!!!
 Current Goals:
-    * figure out why creating instances during game causes visual bugs (I may email my professor about it)
-        ** I seem to have fixed the visual bug where the bullets would cover each other up with boxes, but
-           the player character seems to still cover up sprites in a box around it.
-        ** Also this is not all that important of an issue.
+
     * Implement a moving enemy.
-    * Implement an enemy with player bullet collision detection
+    *
     * Create enemy bullet object with collision detection with player
     * make functional power ups (This may be dropped if it's too much of a pain)
     * Create new hitbox types
     * Create an enemy wave.
+    * Implement timing to require it to wait so many milliseconds
 
 
 So a couple end goals we need to reach towards:

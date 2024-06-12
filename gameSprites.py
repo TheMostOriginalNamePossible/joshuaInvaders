@@ -25,20 +25,18 @@ class Path(object):
         else:
             self.parameter = 0.0
 
-    def bezier(self, t, points) -> float:
-        """De Casteljau's algorithm."""
+    def bezier(self, t, points):
         n = len(points)
-        Px = []
-        Py = []
-
+        xSum = points[0][0]*math.pow(1-t, n)
+        ySum = points[0][1]*math.pow(1-t, n)
         for i in range(1, n):
-            xSum = points[i][0]*math.pow()
-            ySum = points[i][0]*(1-t)**(n-i)
+            x_i = points[i][0]*math.pow(1-t, n-i)*math.pow(t, i)
+            xSum += x_i
+            y_i = points[i][1]*math.pow(1-t, n-i)*math.pow(t, i)
+            ySum += y_i
+        p = (xSum, ySum)
+        return p
 
-        for j in range(1, n):
-            for k in range(n - j):
-                beta[k] = beta[k] * (1 - t) + beta[k + 1] * t
-        return beta[0]
 
 class Sprite(simpleGE.Sprite):
     def __init__(self, scene):
@@ -131,8 +129,14 @@ class Joshua(Sprite):
         super().__init__(scene)
         self.setImage("Joshua.png")
         self.setSize(80, 80)
+        self.position = (50, 50)
+        self.hp = 5
 
         self.setHitbox()
+
+    def doDamage(self, damage):
+        self.hp -= damage
+
 
 class Player(Sprite):
     def __init__(self, scene):
@@ -143,6 +147,7 @@ class Player(Sprite):
         self.rightHitboxC = 0.5
         self.setImage("INLYSSunny.png")
         self.setSize(60, 60)
+        self.hp = 5
         self.setHitbox()
 
     def moveSprite(self):
@@ -156,6 +161,8 @@ class Player(Sprite):
     def yGetPos(self):
         return self.y
 
+    def doDamage(self, damage):
+        self.hp -= damage
     def process(self):
         self.moveSprite()
 

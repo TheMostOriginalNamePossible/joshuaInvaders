@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b683178-afdc-4cdf-ad0f-7f7cef8823c0" name="Changes" comment="just added some stuff">
-      <change afterPath="$PROJECT_DIR$/sepsisLaser.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boolet.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameSprites.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameSprites.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/joshuaInvadersMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/joshuaInvadersMain.py" afterDir="false" />
@@ -189,7 +189,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718130535534</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="just added some stuff">
+      <option name="closed" value="true" />
+      <created>1718166902204</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1718166902205</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

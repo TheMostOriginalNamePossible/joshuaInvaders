@@ -19,10 +19,14 @@ class Game(simpleGE.Scene):
         self.player = gameSprites.Player(self)
         self.laser = gameSprites.Bullet(self)
         self.joshua = gameSprites.Joshua(self)
+        self.bullet = gameSprites.Bullet(self)
+        self.bullet.setImage("boolet.png")
+        # Groups here
+        self.mainGroup = pygame.sprite.Group()
         self.laserGroup = pygame.sprite.Group()
         self.playerGroup = pygame.sprite.GroupSingle()
         self.enemyGroup = pygame.sprite.Group()
-        self.gameGroup = pygame.sprite.Group()
+        self.bulletGroup = pygame.sprite.Group()
         # make sounds here
 
     def __mainLoop(self):
@@ -41,17 +45,19 @@ class Game(simpleGE.Scene):
         for group in self.groups:
             group.clear(self.screen, self.background)
             group.update()
+        for group in self.groups:
             group.draw(self.screen)
-
-
         pygame.display.flip()
+
     def start(self):
         """ sets up the sprite groups
             begins the main loop
         """
         self.playerSpriteUp = pygame.sprite.OrderedUpdates(self.player)
+        self.enemySpriteUp = pygame.sprite.OrderedUpdates(self.joshua)
         self.playerGroup.add(self.playerSpriteUp)
-        self.groups = [self.laserGroup, self.enemyGroup, self.playerGroup]
+        self.enemyGroup.add(self.enemySpriteUp)
+        self.groups = [self.laserGroup, self.bulletGroup, self.enemyGroup, self.playerGroup]
 
         self.screen.blit(self.background, (0, 0))
         self.clock = pygame.time.Clock()
@@ -59,13 +65,6 @@ class Game(simpleGE.Scene):
         while self.keepGoing:
             self.__mainLoop()
         pygame.quit()
-
-    def removeLaser(self, laser):
-        laser.remove(self.laserGroup)
-
-    def createLaser(self, laser):
-        laser.add(self.laserGroup)
-
 
     def pauseGame(self):
         # temporary just so I remember
@@ -100,17 +99,17 @@ class Game(simpleGE.Scene):
             self.laser.x = self.player.xGetPos()
             self.laser.y = self.player.yGetPos()
             self.laser.move()
-            self.createLaser(self.laser)
+            self.laser.add(self.laserGroup)
         for laser in self.laserGroup:
             if laser.checkBounds():
-                self.removeLaser(laser)
+                laser.remove(self.laserGroup)
             else:
                 for enemy in self.enemyGroup:
                     if laser.collidesWith(enemy):
-                        enemy.damage(laser.damage)
-
-
-
+                        laser.remove(self.laserGroup)
+                        enemy.doDamage(laser.damage)
+                    if enemy.hp <= 0:
+                        enemy.remove(self.enemyGroup)
 
     def update(self):
         isPlaying = pygame.mixer.music.get_busy()
