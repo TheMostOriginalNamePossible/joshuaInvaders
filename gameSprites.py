@@ -90,7 +90,7 @@ class Joshua(Sprite):
 
     def shoots(self):
         rand = random.random()
-        if rand <= self.perTickShootChance and self.timer.getTimeLeft() <= 0:
+        if rand < self.perTickShootChance and self.timer.getTimeLeft() <= 0:
             self.timer.start()
             return True
         else:
@@ -105,6 +105,7 @@ class Player(Sprite):
         self.shotTimer = simpleGE.Timer()
         self.shotTimer.totalTime = 0.2
         self.shotTimer.start()
+        self.boundAction = self.STOP
 
     def moveSprite(self):
         pos = pygame.mouse.get_pos()
@@ -159,6 +160,7 @@ class Bullet(MovingObject):
 
     def moveUp(self):
         self.y -= self.moveSpeed
+
     def moveDown(self):
         self.y += self.moveSpeed
 

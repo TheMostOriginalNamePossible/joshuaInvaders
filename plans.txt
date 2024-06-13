@@ -11,11 +11,18 @@ Things done:
     * created a couple functional power ups
     * created start screen
     * created enemy bullet object with collision detection and limits on them. They also make player lose lives
-    *
+    * Added some stat icons.
+    * Made a win and game over screen and all buttons work properly
 Today's Goals:
-    * Game Over screen
-    * Win screen
+    * Create a pause menu
+    Tomorrow:
     * Make new hitboxes
+    * Polish game up
+    * Add moving enemies
+    * Add previous score system
+    * Make wave delay and give indication of next wave
+    Stretch:
+    * Create
 Future Goals:
     * Implement a moving enemy.
     * Creating a pause menu
