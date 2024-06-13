@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b683178-afdc-4cdf-ad0f-7f7cef8823c0" name="Changes" comment="just added some stuff">
-      <change afterPath="$PROJECT_DIR$/P226_9mm.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/minecraftBowSound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/steveHurt.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Steak.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameSprites.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameSprites.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/joshuaInvadersMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/joshuaInvadersMain.py" afterDir="false" />
@@ -37,14 +35,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.joshuaInvadersMain.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/zelda/PycharmProjects/Joshua Invaders&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.joshuaInvadersMain.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/zelda/PycharmProjects/Joshua Invaders",
+    "settings.editor.selected.configurable": "editor.preferences.completion"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\zelda\PycharmProjects\Joshua Invaders" />
@@ -207,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718171995913</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="just added some stuff">
+      <option name="closed" value="true" />
+      <created>1718258539717</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1718258539717</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -225,16 +232,5 @@
     <MESSAGE value="sample  comment" />
     <MESSAGE value="just added some stuff" />
     <option name="LAST_COMMIT_MESSAGE" value="just added some stuff" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/joshuaInvadersMain.py</url>
-          <line>62</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

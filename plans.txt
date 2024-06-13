@@ -7,24 +7,26 @@ Things done:
     * enemies can be damaged and "killed"
     * I FIXED THE VISUAL BUG LETS GO!!!!!
     * game can be paused without issues.
-Important Goals:
-    * Start Screen. it does immediately kill you at start
+    * created a simple enemy wave
+    * created a couple functional power ups
+    * created start screen
+    * created enemy bullet object with collision detection and limits on them. They also make player lose lives
+    *
+Today's Goals:
     * Game Over screen
-Current Goals:
-    * Implement a moving enemy.
-    * Create enemy bullet object with collision detection with player
-    * make functional power ups (working on)
-    * Create an enemy wave
+    * Win screen
     * Make new hitboxes
+Future Goals:
+    * Implement a moving enemy.
     * Creating a pause menu
     * Implement timing to require it to wait so seconds after pressing
       continue to let players get their bearings (later) (might do pretty soon, figured out pause)
-    * __mainLoop needs work.
 
 So a couple end goals we need to reach towards:
     * figuring out how transition between waves.
-    * figuring out how to do menus
+    * figuring out how to do menus (figured out just need to implement)
 Some extras if time permits
+    * new power ups
     * Fix Frame rate issue?
     * different weapons
     * making save data and formatting it

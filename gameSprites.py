@@ -108,11 +108,7 @@ class Player(Sprite):
 
     def moveSprite(self):
         pos = pygame.mouse.get_pos()
-        if pos == (0, 0):
-            self.heightRatio = self.screenHeight / 1080
-            self.position = (self.screenWidth/2, self.screenHeight - 80*self.heightRatio)
-        else:
-            self.position = pos
+        self.position = pos
 
     def canShoot(self):
         if self.shotTimer.getTimeLeft() <= 0:
@@ -147,7 +143,11 @@ class PowerUp(MovingObject):
     def drop(self):
         self.y += self.dropSpeed
 
-
+class Life(PowerUp):
+    def __init__(self, scene):
+        super().__init__(scene)
+        self.setImage("Steak.png")
+        self.setSize(50, 50)
 
 class Bullet(MovingObject):
     def __init__(self, scene):
