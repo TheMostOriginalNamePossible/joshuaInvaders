@@ -1,6 +1,6 @@
 """joshuaInvadersMain.py
-This will be used exclusively to run the game.
-
+Runs a type of space invaders game. I wanted to make it kind of like a game I played in my childhood called
+Chicken Invaders.
 """
 
 import simpleGE, pygame, json, gameSprites, random
@@ -11,7 +11,6 @@ SCREEN_HEIGHT = 720
 
 # Custom Events
 PAUSED = pygame.event.custom_type()
-CONTINUE = pygame.event.custom_type()
 SAVE = pygame.event.custom_type()
 BACK = pygame.event.custom_type()
 WIN = pygame.event.custom_type()
@@ -47,7 +46,7 @@ class Game(simpleGE.Scene):
 
         # timers
         self.timerContinue = simpleGE.Timer()
-        self.timerContinue.totalTime = 3
+        self.timerContinue.totalTime = 1
         self.invincibilityTimer = simpleGE.Timer()
         self.timersndbullet = simpleGE.Timer()
         self.timersndbullet.totalTime = 4
@@ -55,7 +54,10 @@ class Game(simpleGE.Scene):
 
         # font and size
         self.font = pygame.font.Font("freesansbold.ttf", round(20*self.heightRatio))
+        self.font2 = pygame.font.Font("freesansbold.ttf", round(40*self.heightRatio))
         self.lblDefSize = (150*self.widthRatio, 30*self.heightRatio)
+        self.lblDefSize2 = (300*self.widthRatio, 60*self.heightRatio)
+        self.screenCenter = (self.width/2, self.height/2)
 
         # buttons
         self.btnStart = simpleGE.Button()
@@ -76,6 +78,11 @@ class Game(simpleGE.Scene):
         self.btnStartOver.center = self.btnStart.center
         self.btnStartOver.size = self.lblDefSize
 
+        self.btnContinue = simpleGE.Button()
+        self.btnContinue.text = "Continue"
+        self.btnContinue.font = self.font
+        self.btnContinue.center = self.btnStart.center
+        self.btnContinue.size = self.lblDefSize
         # labels
         self.lblm_instructions = simpleGE.MultiLabel()
         self.lblm_instructions.textLines = ["Shoot Joshuas and avoid touching bullets and Joshua.",
@@ -88,24 +95,29 @@ class Game(simpleGE.Scene):
                                             "when Start Game is clicked."
                                             ]
         self.lblm_instructions.font = self.font
-        self.lblm_instructions.center = (self.width/2, self.height/2)
+        self.lblm_instructions.center = self.screenCenter
         self.lblm_instructions.size = (600*self.widthRatio, 320*self.heightRatio)
 
-
-
+        # end labels
         self.lblGameOver = simpleGE.Label()
         self.lblGameOver.text = "Game Over"
-        self.lblGameOver.font = pygame.font.Font("freesansbold.ttf", round(40*self.heightRatio))
+        self.lblGameOver.font = self.font2
         #self.lblGameOver.clearBack = True
-        self.lblGameOver.center = (self.width/2, self.height/2)
-        self.lblGameOver.size = (300*self.widthRatio, 60*self.heightRatio)
+        self.lblGameOver.center = self.screenCenter
+        self.lblGameOver.size = self.lblDefSize2
 
         self.lblWin = simpleGE.Label()
         self.lblWin.text = "You Win"
-        self.lblWin.font = pygame.font.Font("freesansbold.ttf", round(40*self.heightRatio))
+        self.lblWin.font = self.font2
         #self.lblWin.clearBack = True
-        self.lblWin.center = (self.width/2, self.height/2)
-        self.lblWin.size = (300*self.widthRatio, 60*self.heightRatio)
+        self.lblWin.center = self.screenCenter
+        self.lblWin.size = self.lblDefSize2
+
+        self.lblPaused = simpleGE.Label()
+        self.lblPaused.text = "Paused"
+        self.lblPaused.font = self.font2
+        self.lblPaused.center = self.screenCenter
+        self.lblPaused.size = self.lblDefSize2
 
         # stats labels
         self.lblLives = simpleGE.Label()
@@ -131,6 +143,7 @@ class Game(simpleGE.Scene):
         self.lstStart = [self.btnStart, self.btnQuit, self.lblm_instructions]
         self.lstGameOver = [self.btnQuit, self.btnStartOver, self.lblGameOver]
         self.lstWin = [self.lblWin, self.btnQuit, self.btnStartOver]
+        self.lstPause = [self.btnContinue, self.btnQuit,]
 
         # sprites
         self.player = gameSprites.Player(self)
@@ -215,6 +228,7 @@ class Game(simpleGE.Scene):
             self.menuStart = False
             pygame.mouse.set_visible(True)
         self.__menuLoop()
+
     def __winLoop(self):
         if self.menuStart:
             for group in self.groups:
@@ -227,7 +241,7 @@ class Game(simpleGE.Scene):
             self.menuStart = False
             pygame.mouse.set_visible(True)
         self.__menuLoop()
-    # START
+
     def start(self):
         """ sets up the sprite groups
             begins the main loop
@@ -243,6 +257,7 @@ class Game(simpleGE.Scene):
         while self.keepGoing:
             self.gameSequence()
         pygame.quit()
+
     def gameSequence(self):
         """This tells how the game should run using the game's boolean variables.
 
@@ -295,10 +310,12 @@ class Game(simpleGE.Scene):
             self.doStart = False
             self.stop()
 
-
     def pauseGame(self):
         # temporary just so I remember
         self.paused = True
+        for item in self.lstPause:
+            item.add(self.grpMenu)
+        pygame.mouse.set_visible(True)
         while self.paused:
             for group in self.groups:
                 group.clear(self.screen, self.background)
@@ -313,15 +330,12 @@ class Game(simpleGE.Scene):
 
             pygame.display.flip()
             # continue button
-            if self.isKeyPressed(pygame.K_c):
-                pygame.event.post(pygame.event.Event(CONTINUE))
-                #self.continueTimer.start = time.time()
+            if self.btnContinue.clicked:
+                for item in self.lstPause:
+                    item.remove(self.grpMenu)
                 self.paused = False
-            # save button
-            elif self.isKeyPressed(pygame.K_s):
-                pygame.event.post(pygame.event.Event(SAVE))
             # quit button
-            elif self.isKeyPressed(pygame.K_q):
+            elif self.btnQuit.clicked:
                 pygame.event.post(pygame.event.Event(pygame.QUIT))
                 self.paused = False
 
@@ -343,6 +357,7 @@ class Game(simpleGE.Scene):
         elif event.type == GAME_OVER:
             self.gameOver = True
             self.menuStart = True
+
     def wave1(self):
         self.enemyNum = 17
         for i in range(self.enemyNum):
@@ -399,7 +414,7 @@ class Game(simpleGE.Scene):
                         self.life.add(self.grpPowerUp)
                 self.enemyNum -= 1
                 enemy.remove(self.grpEnemy)
-            if enemy.shoots() and len(self.grpBullet) <= 10:
+            if enemy.shoots() and len(self.grpBullet) <= 100:
                 if self.timersndbullet.getTimeLeft() <= 0:
                     self.timersndbullet.start()
                     self.sndbullet.play()
@@ -473,6 +488,7 @@ class Game(simpleGE.Scene):
         self.lblLives.text = f"Lives: {self.lives}"
         self.lblScore.text = f"Score: {self.score}"
         self.lblPower.text = f"Power: {self.power}"
+
 
 def main():
     game = Game()

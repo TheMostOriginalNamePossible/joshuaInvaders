@@ -13,21 +13,20 @@ Things done:
     * created enemy bullet object with collision detection and limits on them. They also make player lose lives
     * Added some stat icons.
     * Made a win and game over screen and all buttons work properly
+    * Created a functional pause menu. Game is paused when P is pressed.
 Today's Goals:
-    * Create a pause menu
-    Tomorrow:
     * Make new hitboxes
     * Polish game up
-    * Add moving enemies
     * Add previous score system
+    * Fix bullet start delay
     * Make wave delay and give indication of next wave
-    Stretch:
-    * Create
-Future Goals:
-    * Implement a moving enemy.
-    * Creating a pause menu
     * Implement timing to require it to wait so seconds after pressing
       continue to let players get their bearings (later) (might do pretty soon, figured out pause)
+    * Make a readME.txt
+Stretch:
+    * Implement a moving enemy.
+    * Create a new wave containing moving enemies
+    *
 
 So a couple end goals we need to reach towards:
     * figuring out how transition between waves.
