@@ -32,9 +32,19 @@ When I wrote it out, I had a specific game in mind, Chicken Invaders 4. Look it 
 That's what I was going for gameplay wise over the traditional space invaders type game.
 
 A choking point when I was using simpleGE.py. I ran into an annoying visual bug when using groups. Since I was
-set on using groups, I had to change the whole __mainLoop because the for loop at the end caused the visual bug.
-There's probably
+set on using groups, I had to change the whole __mainLoop method because the for loop at the end caused the visual bug.
+There was just too many issues for me to adapt my program to fit the __mainLoop method. I also had a tendency to
+get stuck on what to do because labels take forever to make.
+
+I better understand how to work with classes and create new classes to fit specific needs of a program.
+I also found that boolean variable pretty versatile despite only having two possible values. They ended up being
+a solution to my problem of making game states for start menu and a bunch of other menus.
+
+I would have made a proper plan code wise if I were to do things differently. On day 2 or 3 of working on this,
+I felt like I was making less progress because I would sit on an unimportant issue for too long rather than
+making progress in other ways. I would also get too far ahead of myself. I am glad I gave myself the whole week
+to do this.
 
 I stayed on track by coding the general structure of classes and methods I would need using the previous game
-as a reference point. I also wrote a plans document to get some overarching goals, very close goals, bugs that
-needed fixed that I got stuck on, and stuff I already did. This is
+as a reference point. I also wrote a plans document to get some overarching goals, very close goals, bugs,
+and completed goals. This is how made sure I got things done. As the game began to form, I was able to realize
