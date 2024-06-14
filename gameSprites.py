@@ -1,5 +1,5 @@
 """gameSprites.py
-Holds game assets. A bit of a misnomer.
+Holds game assets.
 """
 
 import pygame, simpleGE, math, random
@@ -16,13 +16,7 @@ class Sound(simpleGE.Sound):
             self.sound.set_volume(0.5)
 
 
-class LblWave(simpleGE.MultiLabel):
-    pass
-
-class LblLives(simpleGE.Label):
-
-    pass
-
+# Not used in current version
 class Path(object):
     def __init__(self):
         super().__init__()
@@ -47,6 +41,17 @@ class Sprite(simpleGE.Sprite):
     def __init__(self, scene):
         super().__init__(scene)
 
+        self.__hitbox = self.rect
+        self.hitbox = self.rect
+
+    @property
+    def hitbox(self):
+        return self.__hitbox
+    @hitbox.setter
+    def hitbox(self, value):
+        self.__hitbox = value
+
+
     def checkBounds(self):
         if self.bottom > self.screenHeight:
             return True
@@ -59,7 +64,6 @@ class Sprite(simpleGE.Sprite):
         else:
             return False
 
-
 class Joshua(Sprite):
     def __init__(self, scene):
         super().__init__(scene)
@@ -71,12 +75,11 @@ class Joshua(Sprite):
         self.path = Path()
         #
         self.dropChance = 0.1
-        self.perTickShootChance = 0.01
+        self.perTickShootChance = 0.25
 
         self.timer = simpleGE.Timer()
-        self.timer.totalTime = 5
+        self.timer.totalTime = 1
         self.timer.start()
-
 
     def doDamage(self, damage):
         self.hp -= damage
@@ -89,10 +92,15 @@ class Joshua(Sprite):
             return False
 
     def shoots(self):
-        rand = random.random()
-        if rand < self.perTickShootChance and self.timer.getTimeLeft() <= 0:
-            self.timer.start()
-            return True
+        if self.timer.getTimeLeft() <= 0:
+            rand = random.random()
+            if rand < self.dropChance:
+                self.timer.totalTime = random.random()*0.5 + 0.5
+                self.timer.start()
+                return True
+            else:
+                self.timer.totalTime = random.random()*0.5 + 0.5
+                self.timer.start()
         else:
             return False
 
@@ -117,7 +125,6 @@ class Player(Sprite):
             return True
         else:
             return False
-
 
 
 class MovingObject(Sprite):

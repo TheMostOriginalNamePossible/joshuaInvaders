@@ -14,15 +14,15 @@ Things done:
     * Added some stat icons.
     * Made a win and game over screen and all buttons work properly
     * Created a functional pause menu. Game is paused when P is pressed.
+    * Added a previous score in the win and game over screens. It'd be too much of a hassle to have it display
+      previous score in the menu
+    * I was playing a game Thursday and the game slowed when you get for a bit to let players get
 Today's Goals:
-    * Make new hitboxes
+    * Make new hitboxes (might not do)
     * Polish game up
-    * Add previous score system
-    * Fix bullet start delay
     * Make wave delay and give indication of next wave
     * Implement timing to require it to wait so seconds after pressing
-      continue to let players get their bearings (later) (might do pretty soon, figured out pause)
-    * Make a readME.txt
+      continue to let players get their bearings (later) (might do pretty soon, figured out paused)
 Stretch:
     * Implement a moving enemy.
     * Create a new wave containing moving enemies

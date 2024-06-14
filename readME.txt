@@ -49,3 +49,20 @@ I stayed on track by coding the general structure of classes and methods I would
 as a reference point. I also wrote a plans document to get some overarching goals, very close goals, bugs,
 and completed goals. This is how made sure I got things done. As the game began to form, I was able to realize
 what direction I should take and write my plans accordingly.
+
+CREDITS
+
+INLYSSunny.png created by PxDor5 on AO3 (Archive Of Our Own)
+INLYSSunnyP.png created by PxDor5 on AO3
+inlys.mp3 created by PxDor5 on AO3 (obtained via Discord)
+Joshua.png was cropped by me. Cropped from a meme made by Szhoenithgy (Their github is added as a collaborator)
+sepsisLaser.png was made by Szhoenithgy specifically for this project.
+neverlikedyoursmile.mp3 | Song Name: Never Liked Your Smile , Artist: The Living Room
+steak.png from Minecraft pulled from minecraft.fandom.com
+scenepark.png is from the game OMORI.
+eatingsound.mp3 from https://www.youtube.com/watch?v=Fiaf796kie (from Minecraft)
+I pulled steveHurt.mp3 and minecraftBowSound.mp3 from the official Minecraft discord server.
+I pulled P226_9mm.mp3 https://www.fesliyanstudios.com/royalty-free-sound-effects-download/gun-shooting-300
+boolet.png is from
+bullet PNG Designed By SOURABH from https://pngtree.com/freepng/bullet-9mm_8132162.html?sol=downref&id=bef
+(I cropped it).
