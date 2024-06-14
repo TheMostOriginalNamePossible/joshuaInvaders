@@ -48,3 +48,4 @@ to do this.
 I stayed on track by coding the general structure of classes and methods I would need using the previous game
 as a reference point. I also wrote a plans document to get some overarching goals, very close goals, bugs,
 and completed goals. This is how made sure I got things done. As the game began to form, I was able to realize
+what direction I should take and write my plans accordingly.
