@@ -40,7 +40,7 @@ class Path(object):
 class Sprite(simpleGE.Sprite):
     def __init__(self, scene):
         super().__init__(scene)
-
+        self.hitboxCenter = self.rect.center
         self.__hitbox = self.rect
         self.hitbox = self.rect
 
@@ -114,7 +114,6 @@ class Player(Sprite):
         self.shotTimer.totalTime = 0.2
         self.shotTimer.start()
         self.boundAction = self.STOP
-
     def moveSprite(self):
         pos = pygame.mouse.get_pos()
         self.position = pos

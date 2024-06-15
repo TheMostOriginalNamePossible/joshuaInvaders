@@ -27,7 +27,7 @@ Stretch:
     (I didn't bother to do these, so I just left them here)
     * Implement a moving enemy.
     * Create a new wave containing moving enemies
-    * Finish implementing hitboxesfinis
+    * Finish implementing hitboxes
 
 So a couple end goals we need to reach towards:
     (Left this here for reference)

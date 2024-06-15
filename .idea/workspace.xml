@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b683178-afdc-4cdf-ad0f-7f7cef8823c0" name="Changes" comment="not done yet">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/credit.txt" beforeDir="false" />
+    <list default="true" id="3b683178-afdc-4cdf-ad0f-7f7cef8823c0" name="Changes" comment="Finished">
       <change beforePath="$PROJECT_DIR$/gameSprites.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameSprites.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/joshuaInvadersMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/joshuaInvadersMain.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plans.txt" beforeDir="false" afterPath="$PROJECT_DIR$/plans.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -262,7 +259,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718408130198</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Finished">
+      <option name="closed" value="true" />
+      <created>1718412749846</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1718412749846</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -281,6 +286,7 @@
     <MESSAGE value="just added some stuff" />
     <MESSAGE value="progress" />
     <MESSAGE value="not done yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="not done yet" />
+    <MESSAGE value="Finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished" />
   </component>
 </project>
