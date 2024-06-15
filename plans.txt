@@ -16,22 +16,22 @@ Things done:
     * Created a functional pause menu. Game is paused when P is pressed.
     * Added a previous score in the win and game over screens. It'd be too much of a hassle to have it display
       previous score in the menu
-    * I was playing a game Thursday and the game slowed when you get for a bit to let players get
+    * I was playing a game Thursday and when you go back to the game from the being paused, it slows down the
+    game to let you
+    * Made a wave delay feature, so players aren't immediately damaged when the next wave
+      is incoming.
 Today's Goals:
-    * Make new hitboxes (might not do)
-    * Polish game up
-    * Make wave delay and give indication of next wave
-    * Implement timing to require it to wait so seconds after pressing
-      continue to let players get their bearings (later) (might do pretty soon, figured out paused)
+    (Left this for reference)
+
 Stretch:
+    (I didn't bother to do these, so I just left them here)
     * Implement a moving enemy.
     * Create a new wave containing moving enemies
-    *
+    * Finish implementing hitboxesfinis
 
 So a couple end goals we need to reach towards:
-    * figuring out how transition between waves.
-    * figuring out how to do menus (figured out just need to implement)
-Some extras if time permits
+    (Left this here for reference)
+Some extras if time permits:
     * new power ups
     * Fix Frame rate issue?
     * different weapons

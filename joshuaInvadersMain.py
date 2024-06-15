@@ -1,6 +1,6 @@
 """joshuaInvadersMain.py
 Runs a type of space invaders game. I wanted to make it kind of like a game I played in my childhood called
-Chicken Invaders.
+Chicken Invaders 4.
 """
 
 import simpleGE, pygame, gameSprites, random
@@ -29,16 +29,19 @@ class Game(simpleGE.Scene):
         self.gameOver = False
         self.menuStart = False
         self.invcble = False
-        self.incomingWave = True
+        self.timingWave = False
+        self.incomingWave = False
 
         # number stats
         self.enemyNum = 0
-        self.waveNum = 0
+        self.waveNum = 1
         self.score = 0
         self.prevScore = 0
         self.lives = 3
         self.laserSize = 0
         self.power = 0
+        self.finalWaveNum = 3
+
         # limits certain attributes
         self.maxPower = 5
         self.maxBullets = 15
@@ -130,15 +133,16 @@ class Game(simpleGE.Scene):
         self.lblWave = simpleGE.Label()
         self.lblWave.text = f"Wave Incoming"
         self.lblWave.font = self.font2
+        self.lblWave.fgColor = ((0xFF, 0xFF, 0xFF))
         self.lblWave.clearBack = True
         self.lblWave.center = self.screenCenter
         self.lblWave.size = self.lblDefSize2
 
         self.lblStayLow = simpleGE.Label()
-        self.lblStayLow.text = ["Stay Low"]
+        self.lblStayLow.text = "Stay Low"
         self.lblStayLow.font = self.font2
+        self.lblStayLow.fgColor = ((0xFF, 0x00, 0x00))
         self.lblStayLow.clearBack = True
-        self.lblStayLow.fgColor = ((0xFF,0x00,0x00))
         self.lblStayLow.center = (self.width/2, 640*self.heightRatio)
         self.lblStayLow.size = self.lblDefSize2
 
@@ -180,10 +184,10 @@ class Game(simpleGE.Scene):
         self.lstWin = [self.lblWin, self.btnQuit, self.btnStartOver, self.lblPrevScore]
         self.lstPause = [self.btnContinue, self.btnQuit]
 
-
         # sprites
         self.player = gameSprites.Player(self)
         self.player.setSize(60*self.widthRatio, 60*self.heightRatio)
+
         self.joshua = gameSprites.Joshua(self)
         self.life = gameSprites.Life(self)
         self.powerUp = gameSprites.PowerUp(self)
@@ -215,6 +219,17 @@ class Game(simpleGE.Scene):
         self.sndinlys.volume(0.4)
         self.sndhurt.volume(0.3)
 
+    def attrInit(self):
+        """This is to keep all the stat attributes that gameSequence() needs
+        to run properly in one place.
+        """
+        self.enemyNum = 0
+        self.waveNum = 1
+        self.lives = 3
+        self.laserSize = 0
+        self.power = 0
+        self.score = 0
+
     # LOOP METHODS
     def __mainLoop(self):
         """ manage all the main events
@@ -236,6 +251,7 @@ class Game(simpleGE.Scene):
             group.update()
         for group in self.groups:
             group.draw(self.screen)
+
         pygame.display.flip()
 
     def __menuLoop(self):
@@ -306,12 +322,7 @@ class Game(simpleGE.Scene):
             self.__menuLoop()
         else:
             if self.starting:
-                self.enemyNum = 0
-                self.waveNum = 0
-                self.lives = 3
-                self.laserSize = 0
-                self.power = 0
-                self.score = 0
+                self.attrInit()
                 pygame.mouse.set_visible(False)
                 pygame.mouse.set_pos(self.width/2, 640*self.heightRatio)
                 self.player.position = (self.width/2, 640*self.heightRatio)
@@ -396,6 +407,8 @@ class Game(simpleGE.Scene):
             self.saveGame()
             self.stop()
         elif event.type == NEXT_WAVE:
+            self.lblWave.remove(self.grpLblWave)
+            self.lblStayLow.remove(self.grpLblWave)
             self.nextWave()
         elif event.type == WIN:
             self.win = True
@@ -418,13 +431,18 @@ class Game(simpleGE.Scene):
         self.enemyNum = 3 * self.enemyNum
 
     def nextWave(self):
-        self.waveNum += 1
-        if self.waveNum == 0:
+        if self.waveNum == 1:
             self.wave1()
-        elif self.waveNum == 1:
-            self.wave1()
+            self.lblWaveStat.text = f"Wave: {self.waveNum}"
+            self.waveNum += 1
         elif self.waveNum == 2:
             self.wave1()
+            self.lblWaveStat.text = f"Wave: {self.waveNum}"
+            self.waveNum += 1
+        elif self.waveNum == 3:
+            self.wave1()
+            self.lblWaveStat.text = f"Wave: {self.waveNum}"
+            self.waveNum += 1
         else:
             pygame.event.post(pygame.event.Event(WIN))
 
@@ -536,7 +554,21 @@ class Game(simpleGE.Scene):
 
     def update(self):
         if self.enemyNum == 0:
-            pygame.event.post(pygame.event.Event(NEXT_WAVE))
+            self.incomingWave = True
+            self.enemyNum = -1
+        if self.incomingWave:
+            if self.waveNum > self.finalWaveNum:
+                self.timingWave = True
+            else:
+                self.timingWave = True
+                self.timerWave.start()
+                self.lblWave.add(self.grpLblWave)
+                self.lblStayLow.add(self.grpLblWave)
+            self.incomingWave = False
+        if self.timingWave:
+            if self.timerWave.getTimeLeft() <= 0 or self.waveNum > self.finalWaveNum:
+                self.timingWave = False
+                pygame.event.post(pygame.event.Event(NEXT_WAVE))
         if self.timerContinue.getTimeLeft() > 0:
             self.clock.tick(20)
         else:
@@ -548,8 +580,7 @@ class Game(simpleGE.Scene):
         self.lblLives.text = f"Lives: {self.lives}"
         self.lblScore.text = f"Score: {self.prevScore}"
         self.lblPower.text = f"Power: {self.power}"
-        self.lblWaveStat.text = f"Wave: {self.waveNum}"
-        self.lblWave.text = f"Wave {self.waveNum}"
+
 
 
 def main():
