@@ -162,7 +162,7 @@ class Game(simpleGE.Scene):
         self.lblScore = simpleGE.Label()
         self.lblScore.text = f"Score: {self.score}"
         self.lblScore.font = self.font
-        self.lblScore.center = (100*self.widthRatio, 600*self.heightRatio)
+        self.lblScore.center = (980*self.widthRatio, 640*self.heightRatio)
         self.lblScore.size = self.lblDefSize
 
         self.lblWaveStat = simpleGE.Label()
