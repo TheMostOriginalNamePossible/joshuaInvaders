@@ -53,8 +53,8 @@ what direction I should take and write my plans accordingly.
 CREDITS
 
 INLYSSunny.png created by PxDor5 on AO3 (Archive Of Our Own)
-INLYSSunnyP.png created by PxDor5 on AO3 (Don't need permission, creator finds it amusing)
-inlys.mp3 created by PxDor5 on AO3 (obtained via Discord) (don't need permission)
+INLYSSunnyP.png created by PxDor5 on AO3 (Permission granted for everything, creator finds it amusing)
+inlys.mp3 created by PxDor5 on AO3 (obtained via Discord)
 Joshua.png was cropped by me. Cropped from a meme made by Szhoenithgy (Their github is added as a collaborator)
 sepsisLaser.png was made by Szhoenithgy specifically for this project.
 neverlikedyoursmile.mp3 | Song Name: Never Liked Your Smile , Artist: The Living Room
